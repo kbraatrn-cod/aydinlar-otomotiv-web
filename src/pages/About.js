@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './About.css'; 
-import image from './background3.jpg';
+
 
 const About = () => {
     return (

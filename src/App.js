@@ -7,8 +7,6 @@ import Footer from './component/Footer';
 import Home from './pages/Home';
 import About from './pages/About'; 
 import Contact from './pages/Contact';
-import ScrollToTop from './component/ScrollToTop'; // ❗️ Ekleyin
-
 
 
 function App() {
