@@ -1,0 +1,324 @@
+/* ====================================
+   HERO SECTION STİLLERİ (TAM EKRAN GÖRÜNÜM)
+   ==================================== */
+
+.hero-section {
+    min-height: 100vh;
+    width: 100%;
+    
+    
+    /* 1. ARKA PLAN GÖRSELİ - BURAYA KENDİ FOTOĞRAFINIZI EKLEYİN */
+    /* Fotoğrafınızı public/images/otosatis.jpg gibi bir yere koyun */
+    background-image: url('background3.jpg'); 
+    background-size: cover; 
+    background-position: center 20%; /* Görselin odağını biraz yukarı çekebiliriz */
+    background-attachment: fixed; /* (Opsiyonel) Görseli kaydırmayı sabitler */
+    
+    /* 2. İÇERİĞİ ORTALAMA */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    position: relative;
+    z-index: 1; 
+}
+/* src/pages/Home.css */
+
+/* --- MOBİL İÇİN ÖZEL GÖRSEL VE HİZALAMA (768px ve altı) --- */
+@media (max-width: 768px) {
+    .hero-section {
+        /* ❗️ MOBİL GÖRSELİ BURAYA EKLEYİN ❗️ */
+        background-image: url('mobile-background.jpg'); 
+        
+        /* Mobil cihazlarda dikey görsel daha iyi görünür */
+        background-position: top center; 
+        
+        /* Header ve footer dışında kalan tüm viewport'u kaplaması için */
+        min-height: 100vh; 
+        
+        /* Kaydırma yaparken görselin sabit kalmaması için (daha iyi mobil performans) */
+        background-attachment: scroll; 
+    }
+    
+    /* Metin (Eğer geri eklerseniz): Mobil ekranda daha küçük font */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    /* CTA Butonları: Mobilde alt alta sıralama */
+    .cta-group {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}
+
+/* GÖRSEL ÜZERİNDEKİ KOYU KATMAN (Overlay) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Hafif koyu, transparan katman */
+    background: rgba(0, 0, 0, 0.55); 
+    z-index: 2;
+}
+
+/* --- HERO İÇERİK STİLLERİ --- */
+.hero-content {
+    z-index: 3; 
+    color: rgb(255, 255, 255);
+    max-width: 900px;
+    padding: 20px;
+    /* Header'ın altında kalmamak için dikeyde 80px boşluk */
+    margin-top: 80px; 
+}
+
+/* Kırmızı Vurgu Rengi */
+.highlight {
+    color: #b50505; 
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Büyük ve etkileyici font */
+    margin-bottom: 200px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.assurance-showcase {
+    
+  padding-top: 120px;       /* Üst Boşluk */
+    padding-bottom: 120px;    /* Alt Boşluk (Eşitlendi) */
+    
+    background-color: #393737; /* Koyu arka plan */
+    text-align: center;
+    width: 100%; 
+    box-sizing: border-box;
+    background-color: #313131; /* Koyu gri bir zemin */
+}
+
+/* --- CTA BUTON GRUBU STİLİ (KIRMIZI VURGU) --- */
+.cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Birincil Buton (Kırmızı Dolgulu) */
+.cta-primary-btn {
+    background-color: #b50505;
+    color: white;
+    padding: 15px 35px;
+    border: 2px solid #b50505;
+    border-radius: 5px; 
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.cta-primary-btn:hover {
+    background-color: transparent;
+    color: #b50505;
+    border: 2px solid #b50505;
+}
+
+/* İkincil Buton (Çerçeveli Kırmızı) */
+.cta-secondary-btn {
+    background-color: transparent;
+    color: white;
+    padding: 15px 35px;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.cta-secondary-btn:hover {
+    background-color: rgb(255, 255, 255);
+    color: #1a1a1a;
+}
+
+/* ====================================
+   HORIZONTAL SCROLL KONTEYNER STİLİ
+   ==================================== */
+
+.horizontal-scroll-container {
+    /* 1. YATAY KAYDIRMA İÇİN KRİTİK KURALLAR */
+    display: flex;
+    overflow-x: auto; /* Yatayda kaydırmayı etkinleştir */
+    overflow-y: hidden;
+    
+    
+    /* Mobil cihazlarda daha rahat parmakla kaydırma için (iOS/Webkit) */
+    -webkit-overflow-scrolling: touch; 
+    
+    /* İsteğe bağlı: Görseldeki gibi scrollbarı gizlemek için */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    margin-top: 40px;
+    padding-bottom: 20px; /* Kaydırma çubuğu boşluğu */
+}
+
+/* Scrollbarı tamamen gizle (Webkit tabanlı tarayıcılar) */
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* KARTLAR ARASI BOŞLUK */
+.horizontal-scroll-container .scroll-item {
+    /* Yatay kaydırma için kritik: Kartların esnemesini engelle ve sabit genişlik ver */
+    flex: 0 0 auto; 
+    width: 320px; /* Her kartın genişliğini sabit tut */
+    margin-right: 25px; /* Kartlar arasındaki boşluk */
+    
+    /* Diğer kart stilleri (gölge, border-radius vb.) burada kalır */
+}
+
+/* Mobil cihazlarda kartları biraz küçültelim */
+@media (max-width: 768px) {
+    .horizontal-scroll-container .scroll-item {
+        width: 80vw; /* Ekran genişliğinin %80'i kadar yap */
+    }
+}
+
+body {
+    background-color: rgb(57, 55, 55); 
+    /* Veya daha okunaklı bir Hex kodu: #393737 */
+    color: #ffffff; /* Siyah arka planda metinlerin okunması için varsayılan metin rengini beyaza çekin */
+}
+
+
+
+
+/* src/pages/Home.css */
+
+/* --- KART STİLİ (CARD STİLİ) --- */
+.card {
+    /* Flex yapısı ve genişlik aynı kalır (Horizontal Scroll için) */
+    padding: 40px 30px;
+    flex: 0 0 auto; 
+    width: 320px; 
+    margin-right: 25px; 
+    
+    /* 💥 KART GÖRÜNÜMÜNÜ SAĞLAYAN KRİTİK AYARLAR 💥 */
+    background-color: #2b2b2b; /* Daha koyu arka plandan ayrılan açık koyu gri ton */
+    padding: 30px;
+    border-radius: 12px; /* Yuvarlak köşeler */
+    
+    /* İsteğe bağlı: Kırmızı vurgulu ince bir kenarlık */
+    border: 1px solid rgba(181, 5, 5, 0.5); 
+    
+    /* Modern, belirgin gölge (Kartı havada gösterir) */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+    /* Kart içindeki metinlerin okunması için renk beyaz olmalı */
+    color: white; 
+    text-align: left; /* Metni sola hizala */
+}
+
+/* Kart Başlıklarının ve Metinlerinin Okunurluğunu Düzeltme */
+.card h3 {
+    color: white; /* Başlıklar beyaz olsun */
+    font-size: 1rem;
+    margin: 15px 0;
+    font-weight:600;
+}
+
+.card p {
+    color: #cccccc; /* Açıklamalar hafif gri olsun */
+    font-size: 1;
+}
+
+/* Hover Efekti */
+.card:hover {
+    transform: translateY(-1px); 
+    box-shadow: 0 15px 30px rgba(125, 6, 6, 0.4); /* Hover'da kırmızı vurgulu gölge */
+}
+
+/* İkonların Vurgu Rengi */
+.icon-badge {
+    color: #b50505; /* Kırmızı Vurgu */
+    background-color: #4a4a4a; /* İkon arka planı da koyu olsun */
+    padding: 10px;
+    border-radius: 50%;
+    /* ... diğer ikon stilleri ... */
+}
+
+/* src/pages/Home.css */
+
+/* --- KART STİLİ (CARD STİLİ) --- */
+.card {
+    /* Flex yapısı ve genişlik aynı kalır (Horizontal Scroll için) */
+    flex: 0 0 auto; 
+    width: 300px; 
+    
+    /* 💥 KART GÖRÜNÜMÜNÜ SAĞLAYAN KRİTİK AYARLAR 💥 */
+    background-color: #2b2b2b; /* Daha koyu arka plandan ayrılan açık koyu gri ton */
+    margin-right: 10px;
+    margin-left: 15px;
+    padding: 10px;
+    border-radius: 15px; /* Yuvarlak köşeler */
+    
+    /* İsteğe bağlı: Kırmızı vurgulu ince bir kenarlık */
+    border: 1px solid rgba(181, 5, 5, 0.5); 
+    
+    /* Modern, belirgin gölge (Kartı havada gösterir) */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+    /* Kart içindeki metinlerin okunması için renk beyaz olmalı */
+    color: white; 
+    text-align: left; /* Metni sola hizala */
+}
+
+/* Kart Başlıklarının ve Metinlerinin Okunurluğunu Düzeltme */
+.card h3 {
+    color: white; /* Başlıklar beyaz olsun */
+    font-size: 1.5rem;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.card p {
+    color: #cccccc; /* Açıklamalar hafif gri olsun */
+    font-size: 1rem;
+}
+
+/* Hover Efekti */
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(181, 5, 5, 0.4); /* Hover'da kırmızı vurgulu gölge */
+}
+
+/* İkonların Vurgu Rengi */
+.icon-badge {
+    color: #b50505; /* Kırmızı Vurgu */
+    background-color: #4a4a4a; /* İkon arka planı da koyu olsun */
+    padding: 10px;
+    border-radius: 50%;
+    /* ... diğer ikon stilleri ... */
+}
+.card-wigth {
+    margin-top: 20px;
+    margin-bottom: 500px;
+}
+
+

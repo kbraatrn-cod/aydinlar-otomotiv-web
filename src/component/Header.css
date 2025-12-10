@@ -1,0 +1,196 @@
+/* ====================================
+   1. GENEL SIFIRLAMA ve FONT (Kritik)
+   ==================================== */
+/* Tarayıcı varsayılan boşluklarını sıfırla */
+body, html {
+    margin: 0; 
+    padding: 0; 
+    /* Modern font (Eğer Google Fonts'tan Poppins eklemediyseniz, sistem fontu kullanın) */
+    font-family: 'Poppins', sans-serif, Arial; 
+}
+
+/* ====================================
+   2. ANA HEADER YAPISI
+   ==================================== */
+
+/* Navigasyonu Masaüstünde Gizle */
+
+.menu-toggle {
+    display: none !important;
+}
+/* 2. Masaüstünde Menü ve Butonu YAN YANA GÖSTER */
+.desktop-menu-group {
+    display: flex; /* İçindeki nav ve butonu hizalar */
+    align-items: center;
+    gap: 35px; /* Menü ile buton arasına boşluk koyar */
+}
+
+/* Navigasyon Listesi (Masaüstünde görünür) */
+.main-nav {
+    display: block; /* Normalde göster */
+}
+
+/* --- MOBİL UYUM (768px ve altı) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Hamburger Butonunu GÖSTER */
+    .menu-toggle {
+        display: block !important; /* Mobil cihazda göster */
+    }
+
+    /* 2. Masaüstü Navigasyon ve Buton Grubunu GİZLE */
+    .desktop-menu-group {
+        display: none !important; /* Tüm grubu gizle */
+    }
+
+    /* ❗️ MOBİL AÇILIR MENÜ İÇİN YENİ YAPI ❗️ */
+    /* Menüye tıklandığında açılan içerik (Gerekiyorsa, bu kısmı mobil menü için ayrı bir component yapısı ile doldurmalısınız) */
+    
+    /* Eğer mobil menü için ayrı bir component kullanmayıp masaüstü menüsünü kullanmak isterseniz: */
+    
+    /* Masaüstü menüsü mobil görünümde, hamburger açılınca görülmeli */
+    .main-nav {
+        /* Bu durumda, mobil menüyü açıp kapamak için ayrı bir component kullanmanız önerilir. */
+    }
+}
+.main-header {
+    /* Header'ı sabitler ve ekranın en üstüne oturtur */
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 0; 
+    
+    /* Siyah Arka Plan */
+    background-color: #000000; 
+    color: white; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); 
+    transition: background-color 0.4s ease, box-shadow 0.4s ease; 
+}
+
+/* ❗️ ŞEFFAF BAŞLANGIÇ DURUMU (Eğer scroll logic kullanıyorsanız) */
+.transparent-header {
+    background-color: rgba(0, 0, 0, 0); 
+    box-shadow: none;
+}
+
+/* KAYDIRILMIŞ DURUMDA SİYAH OLMASINI Garanti Etme */
+.main-header.scrolled {
+    background-color: #000000;
+    padding: 20px 0;
+}
+
+/* ====================================
+   3. İÇERİK YERLEŞİMİ (Sola İtme Çözümü)
+   ==================================== */
+.header-inner {
+    /* Menü olmadığı için logo ve iletişim butonu arasındaki yerleşimi ayarlar */
+    display: flex;
+    justify-content: space-between; /* Logo Sola, Buton Sağa */
+    align-items: center;
+    padding: 0 80px; 
+}
+/* ====================================
+   4. LOGO VE NAVİGASYON STİLLERİ
+   ==================================== */
+.header-logo-img {
+    height: 40px; 
+    width: auto;
+    display: block; 
+}
+
+/* Navigasyon Listesi */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    /* Linkler arasında boşluk */
+    gap: 35px; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Link Stili */
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem; 
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative; 
+    padding-bottom: 5px; 
+    text-transform: uppercase;
+}
+
+/* HOVER ve AKTİF VURGUSU (Altın) */
+.main-nav a:hover,
+.main-nav a.active {
+    color: #b50505; 
+}
+
+/* Aktif Alt Çizgi Efekti */
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #b50505; 
+}
+
+/* --- İLETİŞİM BUTONU STİLİ --- */
+.header-contact-btn {
+    background-color: #b50505; 
+    color: #000000; 
+    padding: 10px 20px;
+    border: 2px solid #b50505;
+    border-radius: 50px; 
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-left: 30px; /* Menü ile buton arasına ek boşluk */
+    transition: all 0.3s ease-in-out;
+}
+
+.header-contact-btn:hover {
+    background-color: transparent; 
+    color: #b50505; 
+}
+
+/* ====================================
+   5. MOBİL UYUM (768px altında)
+   ==================================== */
+@media (max-width: 768px) {
+    /* Hamburger butonu göster */
+    .menu-toggle {
+        display: block; 
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Masaüstü menüsünü gizle */
+    .main-nav {
+        display: none; 
+        position: absolute;
+        top: 65px; 
+        left: 0;
+        width: 100%;
+        background-color: #010912; 
+        z-index: 90;
+    }
+    
+    .main-nav.open {
+        display: block; 
+    }
+
+    .main-nav ul {
+        flex-direction: column; 
+        padding: 20px;
+    }
+
+    .header-contact-btn {
+        display: none; /* Butonu mobilde gizle */
+    }
+}

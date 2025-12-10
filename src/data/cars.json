@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "marka": "Renault",
+    "model": "Clio",
+    "fiyat": 450000,
+    "yil": 2018,
+    "km": 85000,
+    "aciklama": "Temiz kullanılmış, düşük kilometreli.",
+    "fotoUrl": "/images/clio.jpg"
+  },
+  {
+    "id": 2,
+    "marka": "Opel",
+    "model": "Astra",
+    "fiyat": 720000,
+    "yil": 2021,
+    "km": 30000,
+    "aciklama": "HatasıZ, boyasız, garaj arabası.",
+    "fotoUrl": "/images/astra.jpg"
+  }
+]

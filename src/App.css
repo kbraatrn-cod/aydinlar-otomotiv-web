@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+/* --- GENEL KONTEYNIR VE ARKA PLAN --- */
+.main-header.dark-theme {
+    background-color: #1a1a1a; /* Koyu Gri/Siyah */
+    color: #f0f0f0; 
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+    z-index: 100;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-inner {
+    display: flex;
+    justify-content: space-between; /* Ögeleri iki uca yay */
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* --- LOGO VE MARKALAMA --- */
+.site-logo {
+    color: #ffd700; /* Altın Rengi Vurgu */
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-decoration: none;
+    line-height: 0.5;
+    text-transform: uppercase;
+}
+.site-logo small {
+    font-size: 0.7rem;
+    font-weight: 100;
+    color: #cccccc;
+    display: block; /* Alt satıra indir */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* --- NAVİGASYON LİNKLERİ --- */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; 
+    margin: 0;
+    padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.main-nav a {
+    color: #f0f0f0; 
+    text-decoration: none;
+    font-size: 0.95rem; 
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative; 
+    padding-bottom: 5px; /* Alt çizgi için boşluk */
+    text-transform: uppercase; /* Tüm menü büyük harf */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* HOVER VE AKTİF DURUM VURGUSU */
+.main-nav a:hover,
+.main-nav a.active { 
+    color: #ffd700; /* Altın Rengi */
+}
+
+/* Alt Çizgi Efekti (Aktif sayfayı gösterir) */
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffd700; 
+}
+
+/* --- İLETİŞİM BUTONU STİLİ --- */
+.header-contact-btn {
+    background-color: #ffffff; 
+    color: #000000; /* Koyu metin */
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: background-color 0.3s;
+}
+
+.header-contact-btn:hover {
+    background-color: #ffffff; /* Hafif koyulaşma */
+}
+
+/* --- MOBİL STİLLER (768px altında) --- */
+@media (max-width: 768px) {
+    /* İletişim butonunu mobilde menüye taşıyabilir veya gizleyebilirsiniz */
+    .header-contact-btn {
+        display: none; 
+    }
+    
+    .main-nav {
+        /* Mobil menü stili (dikey) */
+        
+    }
+    /* (Daha önceki mobilde hamburger menü açma/kapama CSS kuralları burada geçerlidir.) */
+}
+
+
+body {
+    background-color: rgb(57, 55, 55); 
+    /* Veya daha okunaklı bir Hex kodu: #393737 */
+    color: #ffffff; /* Siyah arka planda metinlerin okunması için varsayılan metin rengini beyaza çekin */
+}
+
+.assurance-showcase {
+    background-color: #313131; /* Koyu gri bir zemin */
 }

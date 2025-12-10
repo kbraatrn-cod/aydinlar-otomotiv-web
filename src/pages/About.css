@@ -1,0 +1,108 @@
+/* src/pages/About.css */
+
+    
+/* 1. SAYFA GENEL STİLİ */
+.about-page {
+    /* Genel koyu arka plan */
+     
+    background-color: rgb(57, 55, 55); 
+    color: white;
+}
+
+/* 2. GİRİŞ HERO BÖLÜMÜ */
+.about-hero {
+    padding: 100px 0 50px 0;
+    text-align: center;
+    background-color: #1a1a1a; /* Koyu gri Header'dan biraz daha koyu */
+    border-bottom: 3px solid #b50505; /* Kırmızı alt çizgi */
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    color: white;
+    margin: 0;
+}
+
+/* 3. HİKAYE VE MİSYON BÖLÜMÜ */
+.about-story {
+    padding: 80px 0;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Metin solda daha geniş, görsel sağda daha dar */
+    gap: 50px;
+    align-items: center;
+}
+
+.story-grid h2 {
+    color: #b50505; /* Kırmızı Vurgu */
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.story-grid p {
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.image-content img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 4. DEĞERLERİMİZ KARTLARI */
+.our-values {
+    padding: 60px 0 100px 0;
+    text-align: center;
+    background-color: #2b2b2b; /* Koyu zeminde biraz daha açık gri */
+}
+
+.section-title {
+    color: white;
+    margin-bottom: 50px;
+}
+
+.values-cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.value-card {
+    flex: 1;
+    max-width: 350px;
+    background-color: #393737; 
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.value-card span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 15px;
+    color: #b50505; /* İkon rengini kırmızı yapalım */
+}
+
+.value-card h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+
+/* MOBİL UYUM */
+@media (max-width: 768px) {
+    .story-grid {
+        grid-template-columns: 1fr; /* Mobilde alt alta sırala */
+    }
+    .values-cards-grid {
+        flex-direction: column; /* Mobilde kartları alt alta sırala */
+    }
+    .image-content {
+        order: -1; /* Görseli metinden önce göster */
+    }
+}
