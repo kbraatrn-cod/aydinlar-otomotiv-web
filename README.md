@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Aydınlar Otomotiv Erzurum
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React ile hazırlanmış üç sayfalı otomotiv tanıtım sitesi. Araç ilanları Sahibinden mağazasına yönlendirilir.
 
-## Available Scripts
+## Yerel geliştirme
 
-In the project directory, you can run:
+- Bağımlılıklar: npm ci
+- Geliştirme: npm start
+- Üretim: npm run build
+- Testler: npm test -- --watchAll=false --runInBand
 
-### `npm start`
+## Yayın ve iletişim formu
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Netlify için derleme komutu npm run build, yayın klasörü build olmalıdır. public/_redirects, React sayfa yollarını index.html dosyasına yönlendirir.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Netlify panelinde form algılamasını etkinleştirin ve yeniden yayınlayın. public/index.html içindeki gizli form ile Contact.js alan adları aynı kalmalıdır. Başarılı gönderim /tesekkurler.html sayfasına yönlenir. Yerel geliştirme sunucusu form mesajlarını işlemez. Başka bir barındırma hizmetinde form için ayrıca sunucu entegrasyonu gerekir.
 
-### `npm test`
+Yayından sonra form algılamasını, bildirim alıcısını ve test gönderiminin Netlify paneline ulaştığını doğrulayın. Form kurulumu: https://docs.netlify.com/manage/forms/setup/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## İşletme bilgilerinin doğrulanması
 
-### `npm run build`
+Telefon bağlantıları +905333731113 biçimindedir. Harita mevcut örnek konumu kullanır; yayın öncesinde işletmenin kesin harita işaretini, e-posta adresini ve çalışma saatlerini işletme sahibiyle doğrulayın.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Test yapılandırması: CRA içindeki Jest sürümü için React Router paketinin CommonJS girişleri moduleNameMapper ile eşlenmiştir.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Vektör logo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+public/aydinlar-logo.svg koyu zeminler, public/aydinlar-logo-dark.svg açık zeminler içindir. Amblem ve yazı çizgilerden oluşur; font yüklenmesine gerek yoktur. Fotoğraftaki logodan yeniden çizilmiştir, orijinal kurumsal vektör dosyası değildir. Kaynak PNG dosyaları korunmuştur.

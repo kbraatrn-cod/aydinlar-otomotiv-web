@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 const ScrollToTop = () => {
     // React Router'dan mevcut URL yolunu al
-    const { pathname } = useLocation(); 
+    const { pathname } = useLocation();
 
     // pathname değiştiğinde (yani sayfa değiştiğinde) çalışır
     useEffect(() => {
