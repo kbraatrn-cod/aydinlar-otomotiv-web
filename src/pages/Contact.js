@@ -46,8 +46,8 @@ const Contact = () => {
                             <p><a href="tel:+905333731113">0533 373 11 13</a></p>
                         </div>
                         <div className="detail-item">
-                            <h3>E-posta</h3>
-                            <p><a href="mailto:info@aydinlaroto.com">info@aydinlaroto.com</a></p>
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/905333731113" target="_blank" rel="noopener noreferrer">Mesaj gönderin</a></p>
                         </div>
                         <div className="detail-item">
                             <h3>Adres</h3>
