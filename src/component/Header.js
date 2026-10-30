@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
-const logoImage = `${process.env.PUBLIC_URL}/aydinlar-logo.svg`;
+const logoImage = `${process.env.PUBLIC_URL}/aydinlar-logo-dark.svg`;
 
 const Header = () => {
     // Mobil menü yönetimi (sadeliği korumak için yine de önemlidir)
@@ -16,7 +16,7 @@ const Header = () => {
     };
 
     return (
-        <header className="main-header dark-theme" onKeyDown={(event) => { if (event.key === "Escape" && isMenuOpen) { closeMenu(); menuButton.current?.focus(); } }}>
+        <header className="main-header" onKeyDown={(event) => { if (event.key === "Escape" && isMenuOpen) { closeMenu(); menuButton.current?.focus(); } }}>
             <div className="container header-inner">
 
                 {/* 1. LOGO ALANI (Sadece site adını kullanabiliriz) */}
@@ -42,7 +42,7 @@ const Header = () => {
                 <button
                     ref={menuButton} type="button" aria-label={isMenuOpen ? "Menüyü kapat" : "Menüyü aç"} aria-expanded={isMenuOpen} aria-controls="main-navigation" className="menu-toggle"
                     onClick={toggleMenu}>
-                    {isMenuOpen ? '×' : '☰'}
+                    <span aria-hidden="true" /><span aria-hidden="true" />
                 </button>
             </div>
         </header>
